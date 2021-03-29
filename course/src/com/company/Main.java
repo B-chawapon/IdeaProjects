@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 package com.company;
 
 public class Main {
@@ -34,6 +35,8 @@ public class Main {
 
     }
 =======
+=======
+>>>>>>> Stashed changes
 package com.company;
 
 public class Main {
@@ -58,5 +61,8 @@ public class Main {
 
 
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 package com.company;
 
 public class Course {
@@ -64,6 +65,8 @@ public class Course {
     }
 }
 =======
+=======
+>>>>>>> Stashed changes
 package com.company;
 
 public class Course {
@@ -151,4 +154,7 @@ public class Course {
         this.index = 0;
     }
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
