@@ -1,57 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da541cf1-aa08-4da0-b9a3-a879b8d25dd3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../GeometicGlock/src/com/company/GeometricObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GeometicGlock/src/com/company/Triangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NewAccount/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NewAccount/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NewAccount/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NewAccount/NewAccount.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NewAccount/src/com/company/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NewAccount/src/com/company/newAccount2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Comparable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ComparableCircle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/GeometricObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Triangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../bmi/src/com/company/BMI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class222/class222.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class222/src/com/company/RegularPolygon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../class2lab/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../course/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../course/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../course/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../course/course.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../course/src/com/company/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../course/src/com/company/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/lectureinhenceandpoly.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/src/com/company/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/src/com/company/Geometric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lectureinhenceandpoly/src/com/company/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../matrixexam/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../matrixexam/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../matrixexam/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../matrixexam/matrixexam.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../personlab/src/com/company/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../personlab/src/com/company/Faculty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../personlab/src/com/company/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../personlab/src/com/company/Staff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../personlab/src/com/company/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../queue/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../queue/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../queue/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../queue/queue.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../queue/src/com/company/Queue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../queue/src/com/company/StackClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../superclass/src/com/company/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../superclass/src/com/company/CheckingAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../superclass/src/com/company/SavingsAccount.java" afterDir="false" />
-    </list>
+    <list default="true" id="da541cf1-aa08-4da0-b9a3-a879b8d25dd3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +80,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RunManager">
