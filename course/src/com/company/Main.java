@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package com.company;
 
 public class Main {
@@ -32,4 +33,30 @@ public class Main {
         System.out.println(c1.getNumberOfStudents());
 
     }
+=======
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        Course c1 = new Course("OOP");
+        c1.addStudent("A");
+        c1.addStudent("B");
+        c1.addStudent("C");
+        c1.addStudent("D");
+        c1.addStudent("E");
+        c1.addStudent("A");
+        c1.addStudent("B");
+        c1.addStudent("C");
+        c1.addStudent("D");
+        c1.addStudent("E");
+
+        for (int i = 0; i < c1.getIndex(); ++i) {
+            System.out.println(c1.getStudnets()[i]);
+        }
+
+
+    }
+>>>>>>> Stashed changes
 }
