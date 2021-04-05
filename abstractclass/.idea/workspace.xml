@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da541cf1-aa08-4da0-b9a3-a879b8d25dd3" name="Default Changelist" comment="" />
+    <list default="true" id="da541cf1-aa08-4da0-b9a3-a879b8d25dd3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../comparelab8/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/src/com/company/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/src/com/company/Comparable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/src/com/company/ComparableCircle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/src/com/company/ComparableRetangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/src/com/company/GeometricObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../comparelab8/src/com/company/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testintellj/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NewAccount/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NewAccount/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,16 +96,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="abstractclass" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
