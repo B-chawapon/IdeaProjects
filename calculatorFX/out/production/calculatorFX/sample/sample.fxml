@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="352.0" style="-fx-background-color: #000000#000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <StackPane prefHeight="50.0" prefWidth="300.0">
+      <StackPane prefHeight="80.0" prefWidth="300.0">
          <children>
-            <Label fx:id="label" alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="300.0" text="0">
+            <Label fx:id="label" alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="300.0" text="0" textFill="#d0cfcf">
                <font>
                   <Font size="33.0" />
                </font>
@@ -24,35 +24,112 @@
                </StackPane.margin>
             </Label>
          </children></StackPane>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="7" />
-            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="8" />
-            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: radial-gradient(center 50% 50% , radius 120px , #ffebcd, #008080)radial-gradient(center 50% 50% , radius 120px , #ffebcd, #008080);" text="9" />
-            <Button alignment="CENTER" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" text="/" />
+            <Button alignment="CENTER" layoutX="251.0" layoutY="17.0" mnemonicParsing="false" onAction="#processClear" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969; -fx-border-radius: 20;" text="OFF" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processClear" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="C" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processChange" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="+/-" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processChange" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="√" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="/" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="4" />
-            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="5" />
-            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="6" />
-            <Button alignment="CENTER" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" text="*" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="7" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="8" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="9" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="71.0" layoutY="25.0" mnemonicParsing="false" onAction="#processChange" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="\%" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="*" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="70.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="1" />
-            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="2" />
-            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" text="3" />
-            <Button alignment="CENTER" layoutX="200.0" layoutY="10.0" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" text="-" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="4" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="5" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="6" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processChange" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="1/x" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="-" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="71.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="110.0" text="0" />
-            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" text="=" />
-            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" text="+" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="1" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="2" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="165.0" layoutY="10.0" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="3" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="." textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #696969#696969;" text="+" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0" prefHeight="70.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#processNumbers" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #696969#696969;" text="0" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button alignment="CENTER" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#processOperators" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #696969#696969;" text="=" textFill="#fcfcfc">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
