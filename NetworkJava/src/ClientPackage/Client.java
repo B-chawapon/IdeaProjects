@@ -19,12 +19,12 @@ public class Client extends JFrame{
     private ObjectInputStream   input;
 
     private Socket  connection;
-    private String  serverPort;
+    private int  ClientPort;
     private String  message="";
 
-    public Client(String port){
-        super("Client Computer");
-        serverPort=port;
+    public Client(int port){
+        super("Client Computer"+port);
+        ClientPort=port;
         userText=new JTextField();
         chatWindow=new JTextArea();
         userText.setEditable(false);
@@ -59,9 +59,14 @@ public class Client extends JFrame{
 
     private void connectToServer()  {
         try {
-            showMessage("Connect to server");
-            connection = new Socket(InetAddress.getByName("localhost"), 1234);
-            showMessage("Connect to :" + connection.getInetAddress().getHostName());
+            showMessage("Connect to server "+"\n");
+            if(ClientPort==5555) {
+                connection = new Socket(InetAddress.getByName("25.31.245.162"), 1234, InetAddress.getLocalHost(), ClientPort);
+            }
+            else if(ClientPort==6666) {
+                connection = new Socket(InetAddress.getByName("25.31.245.162"), 1235, InetAddress.getLocalHost(),ClientPort);
+            }
+            showMessage("Connect to :" + connection.getInetAddress().getHostName()+" SPORT "+connection.getPort());
         }catch (UnknownHostException e){
             e.printStackTrace();
         }catch (IOException e){

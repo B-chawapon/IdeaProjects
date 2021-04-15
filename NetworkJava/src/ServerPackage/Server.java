@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -15,6 +16,8 @@ public class Server extends JFrame{
     private ObjectOutputStream output;
     private ObjectInputStream   input;
     private ServerSocket    server;
+
+
     private Socket  connection;
 
 
@@ -36,7 +39,7 @@ public class Server extends JFrame{
     }
     public void startRunning(){
         try {
-            server=new ServerSocket(1234,4);
+
             while (true){
                 try {
                     waitforConnection();
@@ -88,9 +91,13 @@ public class Server extends JFrame{
 
     private void waitforConnection() {
         try{
+            server=new ServerSocket(1234,4,InetAddress.getByName("25.31.245.162"));
             showMessage("WAITNG FOR CLIENT...\n");
             connection=server.accept();
-            showMessage("CLIENT CONNECTED :"+connection.getInetAddress().getHostName());
+            showMessage(connection.getLocalAddress().getHostName()+" FromPort "+connection.getPort());
+            //server=new ServerSocket(1235,4,InetAddress.getByName("25.31.245.162"));
+            System.out.println(server.getChannel());
+
         }catch (Exception e){
             e.printStackTrace();
         }
