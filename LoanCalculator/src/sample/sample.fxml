@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="53.0" layoutY="30.0" prefHeight="22.0" prefWidth="117.0" text="Annual Interest Rate:" />
+      <Label layoutX="53.0" layoutY="67.0" text="Number of Years:" />
+      <Label layoutX="53.0" layoutY="96.0" prefHeight="22.0" prefWidth="80.0" text="Loan Amount:" />
+      <Label layoutX="53.0" layoutY="132.0" prefHeight="22.0" prefWidth="107.0" text="Monthly Payment:" />
+      <Label layoutX="56.0" layoutY="167.0" prefHeight="22.0" prefWidth="88.0" text="Total Payment:" />
+      <TextField fx:id="textFAnnual" alignment="BOTTOM_RIGHT" layoutX="202.0" layoutY="33.0" />
+      <TextField fx:id="textFNumber" alignment="BOTTOM_RIGHT" layoutX="202.0" layoutY="68.0" />
+      <TextField fx:id="textFLoan" alignment="BOTTOM_RIGHT" layoutX="202.0" layoutY="104.0" />
+      <TextField fx:id="textFMonthly" alignment="BOTTOM_RIGHT" editable="false" layoutX="202.0" layoutY="135.0" />
+      <TextField fx:id="textFTotal" alignment="BOTTOM_RIGHT" editable="false" layoutX="202.0" layoutY="170.0" />
+      <Button alignment="CENTER" layoutX="296.0" layoutY="207.0" mnemonicParsing="false" onAction="#calculate" prefHeight="29.0" prefWidth="80.0" text="Calculate" />
+      <Button alignment="CENTER" layoutX="202.0" layoutY="207.0" mnemonicParsing="false" onAction="#clearButton" prefHeight="29.0" prefWidth="66.0" text="Clear" />
+      <Button alignment="CENTER" layoutX="100.0" layoutY="207.0" mnemonicParsing="false" onAction="#loadButton" prefHeight="29.0" prefWidth="54.0" text="Load" />
+      <Button alignment="CENTER" layoutX="29.0" layoutY="207.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="29.0" prefWidth="54.0" text="Save" />
+   </children>
+</Pane>

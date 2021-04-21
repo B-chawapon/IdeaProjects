@@ -66,7 +66,7 @@ public class Client extends JFrame{
             else if(ClientPort==6666) {
                 connection = new Socket(InetAddress.getByName("25.31.245.162"), 1235, InetAddress.getLocalHost(),ClientPort);
             }
-            showMessage("Connect to :" + connection.getInetAddress().getHostName()+" SPORT "+connection.getPort());
+            showMessage("Connect to :" + connection.getLocalAddress()+" SPORT "+connection.getPort());
         }catch (UnknownHostException e){
             e.printStackTrace();
         }catch (IOException e){

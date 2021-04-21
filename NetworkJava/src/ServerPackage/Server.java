@@ -39,7 +39,7 @@ public class Server extends JFrame{
     }
     public void startRunning(){
         try {
-
+            server=new ServerSocket(1234,4,InetAddress.getByName("25.31.245.162"));
             while (true){
                 try {
                     waitforConnection();
@@ -91,12 +91,10 @@ public class Server extends JFrame{
 
     private void waitforConnection() {
         try{
-            server=new ServerSocket(1234,4,InetAddress.getByName("25.31.245.162"));
             showMessage("WAITNG FOR CLIENT...\n");
             connection=server.accept();
             showMessage(connection.getLocalAddress().getHostName()+" FromPort "+connection.getPort());
             //server=new ServerSocket(1235,4,InetAddress.getByName("25.31.245.162"));
-            System.out.println(server.getChannel());
 
         }catch (Exception e){
             e.printStackTrace();
