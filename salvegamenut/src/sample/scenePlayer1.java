@@ -38,9 +38,10 @@ public class scenePlayer1  {
     @FXML
     public void AcceptButton(ActionEvent actionEvent) {
 
-
-
-
+        System.out.println(indexOfselectedCard);
+        //System.out.println(indexOfselectedCard.indexOf(9));
+        //System.out.println(indexOfselectedCard.size());
+        //game.canDownCardByCheckValue(indexOfselectedCard);
 
     }
 
@@ -224,6 +225,8 @@ public class scenePlayer1  {
 
     private boolean[] selectedCard={false,false,false,false,false,false,false,false,false,false,false,false,false};
 
+
+    private ArrayList<Integer> indexOfselectedCard=new ArrayList<>();
     @FXML
     public void selectCard(MouseEvent mouseEvent) {
 
@@ -231,21 +234,35 @@ public class scenePlayer1  {
         int index =getIndexCard(Imageview);
 
         System.out.println(Imageview);
+
         if(selectedCard[index]==false) {
-            card52.get(index).setScaleY(12);
-            card52.get(index).setScaleX(12);
-            selectedCard[index]=true;
-            canUpScaleCard[index]=true;
+            if(countSelect<4) {
+                card52.get(index).setScaleY(12);
+                card52.get(index).setScaleX(12);
+                selectedCard[index] = true;
+                canUpScaleCard[index] = true;
+
+                indexOfselectedCard.add(index);//9 10 11
+                countSelect += 1;
+                //System.out.println(countSelect);
+            }
+
         }
         else if(selectedCard[index]==true){
             card52.get(index).setScaleY(10);
             card52.get(index).setScaleX(10);
             canUpScaleCard[index]=false;
             selectedCard[index]=false;
+
+            System.out.println("FOUND");
+            indexOfselectedCard.remove(indexOfselectedCard.indexOf(index));
+            countSelect-=1;
+            //System.out.println(countSelect);
+
         }
 
 
-        countSelect+=1;
+        //countSelect+=1;
     }
 
 

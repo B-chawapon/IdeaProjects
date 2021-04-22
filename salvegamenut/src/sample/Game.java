@@ -1,5 +1,6 @@
 package sample;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -48,6 +49,7 @@ public class Game {
         this.lastFace = face;
 
     }
+
     public boolean canDownCardByCheckSkip(){
         if(p[0].isSkipTurn() && p[1].isSkipTurn() && p[2].isSkipTurn() && p[3].isSkipTurn()){
             lastFace = 0;
@@ -65,7 +67,7 @@ public class Game {
 
     public void canDownCardByCheckValue(int choose){
         //choose is the order of card that player what to dep
-       // choose -= 1;    //if index begin from 0. You can cut this line
+       //choose -= 1;    //if index begin from 0. You can cut this line
         if (p[turn].getKQPS() == 0) {
             if (p[turn].getPlayerCard()[choose][0] > lastFace && !p[turn].isSkipTurn()) {
                 lastFace = p[turn].getPlayerCard()[choose][0];
