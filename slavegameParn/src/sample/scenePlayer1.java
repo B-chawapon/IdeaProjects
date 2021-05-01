@@ -309,7 +309,7 @@ public class scenePlayer1 {
          mediaselectedCard=new Media(setMediaFile("mouseEnter1.mp3"));
          mediaPlayerselectedCard = new MediaPlayer(mediaselectedCard);
 
-         mediaPlayerselectedCard.setVolume(popUpController.sfxvolume);
+         mediaPlayerselectedCard.setVolume(SoundController.sfxvolume);
         mediaPlayerselectedCard.play();
         String Imageview = ((ImageView) mouseEvent.getSource()).getId();
         int index = getIndexCard(Imageview);
@@ -449,7 +449,7 @@ public class scenePlayer1 {
         mediaUpscaleCard=new Media(setMediaFile("mouseEnterCard.mp3"));
         mediaPlayerUpScaleCard=new MediaPlayer(mediaUpscaleCard);
 
-        mediaPlayerUpScaleCard.setVolume(popUpController.sfxvolume);
+        mediaPlayerUpScaleCard.setVolume(SoundController.sfxvolume);
         mediaPlayerUpScaleCard.play();
         System.out.println(mediaPlayerUpScaleCard.getVolume()+" = VO");
         String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
@@ -480,7 +480,7 @@ public class scenePlayer1 {
         soundbgmedia=new Media(setMediaFile("soundbg.mp3"));
         soundmediaPlayer=new MediaPlayer(soundbgmedia);
 
-        soundmediaPlayer.setVolume(popUpController.bgvolume);
+        soundmediaPlayer.setVolume(SoundController.bgvolume);
         soundmediaPlayer.play();
         soundmediaPlayer.setCycleCount(99);
 
@@ -600,7 +600,7 @@ public class scenePlayer1 {
 
     @FXML
     private void option(MouseEvent event) throws IOException {
-       popUpController.display();
+       SoundController.display();
     }
 
 

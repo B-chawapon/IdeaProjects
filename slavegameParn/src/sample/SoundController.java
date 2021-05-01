@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class popUpController  {
+public class SoundController {
 
     @FXML
     private ResourceBundle resources;
@@ -33,7 +33,7 @@ public class popUpController  {
     }
     @FXML
     public static void display() throws IOException {
-        Parent alertParent = FXMLLoader.load(popUpController.class.getResource("popUp.fxml"));
+        Parent alertParent = FXMLLoader.load(SoundController.class.getResource("popUp.fxml"));
         Scene alertScene = new Scene(alertParent);
         //alertScene.getStylesheets().add("styles/style.css");
 
@@ -69,7 +69,7 @@ public class popUpController  {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue2, Number number2, Number t2) {
                 bgvolume=slider0.getValue()/100;
-                scenePlayer1.soundmediaPlayer.setVolume(popUpController.bgvolume);
+                scenePlayer1.soundmediaPlayer.setVolume(SoundController.bgvolume);
             }
         });
     }
