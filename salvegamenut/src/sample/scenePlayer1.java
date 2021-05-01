@@ -21,7 +21,7 @@ import javafx.util.Pair;
 
 import java.util.*;
 
-public class scenePlayer1  {
+public class scenePlayer1 {
     private Card decktest=new Card();
     private  int[] arrayCard1=new int[52];
 

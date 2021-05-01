@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: #220b4e;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.scenePlayer1">
+    <children>
+        <HBox alignment="CENTER" layoutX="461.0" layoutY="9.0" prefHeight="202.0" prefWidth="483.0" spacing="35.0">
+            <children>
+                <ImageView fx:id="pot3" fitHeight="200.0" fitWidth="135.0" layoutX="356.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+                <ImageView fx:id="pot0" fitHeight="200.0" fitWidth="135.0" layoutX="295.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+                <ImageView fx:id="pot4" fitHeight="200.0" fitWidth="135.0" layoutX="362.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="490.0" layoutY="465.0" prefHeight="148.0" prefWidth="444.0" spacing="100.0">
+            <children>
+                <ImageView fx:id="card9" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="110.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card10" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="214.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card11" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="158.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card12" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="293.0" layoutY="614.0" prefHeight="148.0" prefWidth="966.0" spacing="100.0">
+            <children>
+                <ImageView fx:id="card0" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card1" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card2" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card3" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card4" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card5" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card6" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card7" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="card8" fitHeight="13.0" fitWidth="9.0" onMouseClicked="#selectCard" onMouseEntered="#upScale" onMouseExited="#defaultScale" pickOnBounds="true" scaleX="10.0" scaleY="10.0">
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+        <ImageView fx:id="AcceptButton" fitHeight="95.0" fitWidth="200.0" layoutX="1204.0" layoutY="492.0" onMouseClicked="#accept" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
+            <image>
+                <Image url="@../pics.parn/accept.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="goBackButton" fitHeight="95.0" fitWidth="159.0" layoutX="75.0" layoutY="653.0" onMouseClicked="#goBack" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
+            <image>
+                <Image url="@../pics.parn/goBack.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="skipButton" fitHeight="95.0" fitWidth="208.0" layoutX="57.0" layoutY="512.0" onMouseClicked="#skip" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton" preserveRatio="true">
+            <image>
+                <Image url="@../pics.parn/skip.png" />
+            </image>
+        </ImageView>
+        <HBox layoutX="401.0" layoutY="240.0" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
+            <children>
+                <ImageView fx:id="pot5" fitHeight="200.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+                <ImageView fx:id="pot1" fitHeight="200.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+                <ImageView fx:id="pot2" fitHeight="200.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+                <ImageView fx:id="pot6" fitHeight="200.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../Pic/parn2048px-Atlasnye_playing_cards_deck.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D height="150.0" minX="6.0" minY="6.0" width="100.0" />
+                    </viewport>
+                </ImageView>
+            </children>
+        </HBox>
+        <VBox layoutX="32.0" layoutY="18.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <children>
+                <ImageView fx:id="player0" fitHeight="110.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../pics.parn/Mulan.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="player1" fitHeight="105.0" fitWidth="119.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../pics.parn/PocaHontas.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="player2" fitHeight="105.0" fitWidth="128.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../pics.parn/SnowWhite.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="player3" fitHeight="105.0" fitWidth="128.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../pics.parn/Tiana.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="149.0" layoutY="40.0" pickOnBounds="true">
+         <image>
+            <Image url="@../pics.parn/cardHand.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="145.0" layoutY="157.0" pickOnBounds="true">
+         <image>
+            <Image url="@../pics.parn/cardHand.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="150.0" layoutY="266.0" pickOnBounds="true">
+         <image>
+            <Image url="@../pics.parn/cardHand.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="148.0" layoutY="383.0" pickOnBounds="true">
+         <image>
+            <Image url="@../pics.parn/cardHand.png" />
+         </image>
+      </ImageView>
+          <Text fx:id="cardp0" fill="#2fffcb" layoutX="167.0" layoutY="93.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="67.5">
+         <font>
+            <Font name="Rockwell" size="35.0" />
+         </font>
+      </Text>
+          <Text fx:id="cardp3" fill="#b5ff92" layoutX="178.0" layoutY="436.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="44.123605728149414">
+         <font>
+            <Font name="Rockwell" size="35.0" />
+         </font>
+      </Text>
+          <Text fx:id="cardp2" fill="#f7e73e" layoutX="182.0" layoutY="318.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13">
+         <font>
+            <Font name="Rockwell" size="35.0" />
+         </font>
+      </Text>
+          <Text fx:id="cardp1" fill="#ff5e5e" layoutX="176.0" layoutY="211.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="44.123779296875">
+         <font>
+            <Font name="Rockwell" size="35.0" />
+         </font>
+      </Text>
+      <VBox alignment="CENTER_LEFT" layoutX="255.0" layoutY="21.0" prefHeight="450.0" prefWidth="128.0" spacing="90.0">
+         <children>
+              <Text fx:id="player0Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player0" wrappingWidth="118.8330078125">
+               <font>
+                  <Font name="Rockwell" size="23.0" />
+               </font>
+            </Text>
+              <Text fx:id="player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" wrappingWidth="118.8330078125">
+               <font>
+                  <Font name="Rockwell" size="23.0" />
+               </font>
+            </Text>
+              <Text fx:id="player2Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" wrappingWidth="118.33337020874023">
+               <font>
+                  <Font name="Rockwell" size="23.0" />
+               </font>
+            </Text>
+              <Text fx:id="player3Name" fill="#fff9f9" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" wrappingWidth="118.8330078125">
+               <font>
+                  <Font name="Rockwell" size="23.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1171.0" layoutY="65.0"  pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pics.parn/KQPS/PocaHontasKing.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

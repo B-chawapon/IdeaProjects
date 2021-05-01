@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneMenuParn">
+    <children>
+        <ImageView fx:id="bg" fitHeight="990.0" fitWidth="1619.0" layoutX="-14.0" preserveRatio="true">
+            <image>
+                <Image url="@../pics.parn/MenuWall3.jpg" />
+            </image>
+        </ImageView>
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="362.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Princess in Disneyland" AnchorPane.topAnchor="76.90185546875">
+            <font>
+                <Font name="Bell MT" size="75.0" />
+            </font>
+        </Text>
+        <BorderPane layoutY="200.0" prefHeight="632.0" prefWidth="1570.0">
+            <top>
+                <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="1440.0" spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fx:id="player0" fitHeight="200.0" fitWidth="200.0">
+                            <image>
+                                <Image url="@../pics.parn/Mulan.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="player1" fitHeight="200.0" fitWidth="200.0">
+                            <image>
+                                <Image url="@../pics.parn/PocaHontas.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="player2" fitHeight="200.0" fitWidth="189.0">
+                            <image>
+                                <Image url="@../pics.parn/SnowWhite.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="player3" fitHeight="200.0" fitWidth="200.0">
+                            <image>
+                                <Image url="@../pics.parn/Tiana.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </top>
+            <center>
+                <VBox alignment="TOP_CENTER" prefHeight="366.0" prefWidth="1440.0" spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="60.0" prefWidth="1440.0">
+                            <children>
+                                <TextField fx:id="player0Name" alignment="CENTER" layoutX="399.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Mulan">
+                           <font>
+                              <Font name="Rockwell" size="22.0" />
+                           </font></TextField>
+                                <TextField fx:id="player1Name" alignment="CENTER" layoutX="610.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Poca">
+                           <font>
+                              <Font name="Rockwell" size="22.0" />
+                           </font></TextField>
+                                <TextField fx:id="player2Name" alignment="CENTER" layoutX="820.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Snow">
+                           <font>
+                              <Font name="Rockwell" size="22.0" />
+                           </font></TextField>
+                                <TextField fx:id="player3Name" alignment="CENTER" layoutX="1020.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Tiana">
+                           <font>
+                              <Font name="Rockwell" size="22.0" />
+                           </font></TextField>
+                                <Button fx:id="okButton" alignment="CENTER" layoutX="766.0" layoutY="15.0" mnemonicParsing="false" text="OK" visible="false" />
+                            </children>
+                        </Pane>
+                        <ImageView fx:id="startButton" fitHeight="116.0" fitWidth="237.0" onMouseClicked="#startButtonAction" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
+                            <image>
+                                <Image url="@../pics.parn/playNow_new.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="aboutButton" fitHeight="95.0" fitWidth="200.0" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
+                            <image>
+                                <Image url="@../pics.parn/about.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="exitButton" fitHeight="85.0" fitWidth="177.0" onMouseClicked="#exitButtonAction" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
+                            <image>
+                                <Image url="@../pics.parn/exit_new.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </center>
+            <right>
+                <VBox alignment="CENTER_LEFT" prefHeight="389.0" prefWidth="94.0" spacing="60.0" BorderPane.alignment="CENTER_LEFT">
+                    <children>
+                        <ImageView fx:id="speakerOn" fitHeight="100.0" fitWidth="62.0" onMouseClicked="#speakerOnAction" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
+                            <image>
+                                <Image url="@../pics.parn/unMute.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="mute" fitHeight="72.0" fitWidth="63.0" onMouseClicked="#muteAction" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
+                            <image>
+                                <Image url="@../pics.parn/mute.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>

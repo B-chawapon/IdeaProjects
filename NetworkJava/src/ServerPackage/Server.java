@@ -1,11 +1,12 @@
 package ServerPackage;
 
+import ClientPackage.Client;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -39,7 +40,8 @@ public class Server extends JFrame{
     }
     public void startRunning(){
         try {
-            server=new ServerSocket(1234,4,InetAddress.getByName("25.31.245.162"));
+            server=new ServerSocket(1234);
+            server.setReuseAddress(true);
             while (true){
                 try {
                     waitforConnection();
@@ -93,8 +95,10 @@ public class Server extends JFrame{
         try{
             showMessage("WAITNG FOR CLIENT...\n");
             connection=server.accept();
-            showMessage(connection.getLocalAddress().getHostName()+" FromPort "+connection.getPort());
+            showMessage(connection.getLocalAddress() +" FromPort "+connection.getPort());
+            ClientHandler clientSock=new ClientHandler(connection);
             //server=new ServerSocket(1235,4,InetAddress.getByName("25.31.245.162"));
+            new Thread(clientSock).start();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -129,6 +133,48 @@ public class Server extends JFrame{
             connection.close();
         }catch (Exception e){
             e.printStackTrace();
+        }
+
+
+
+    }
+
+    private class ClientHandler implements Runnable {
+        private final Socket clientSocket;
+        public ClientHandler(Socket connection) {
+            this.clientSocket=connection;
+
+        }
+
+        @Override
+        public void run() {
+            PrintWriter out=null;
+            BufferedReader in=null;
+            try{
+                out =new PrintWriter(clientSocket.getOutputStream(),true);
+                in =new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                String line;
+                while ((line=in.readLine())!=null){
+                    System.out.println("Send from client: "+line);
+                    out.println(line);
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }finally {
+                try{
+                    if(out!=null){
+                        out.close();
+                    }
+                    if(in!=null)
+                        in.close();
+                    clientSocket.close();
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+
+
         }
 
 
