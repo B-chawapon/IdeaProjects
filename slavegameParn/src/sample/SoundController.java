@@ -69,8 +69,43 @@ public class SoundController {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue2, Number number2, Number t2) {
                 bgvolume=slider0.getValue()/100;
-                scenePlayer1.soundmediaPlayer.setVolume(SoundController.bgvolume);
+                mediaPlayerBGr.setVolume(SoundController.bgvolume);
             }
         });
     }
+
+    public static Media menusound;
+    public static MediaPlayer mediamenusound;
+
+    //Menu
+    public static void setMediamenusound(String pathstr){
+        menusound=new Media(SoundController.class.getResource(pathstr).toExternalForm());//mouseEnterCard
+        mediamenusound=new MediaPlayer(menusound);
+    }
+
+    public static Media mediaclick;
+    public static MediaPlayer mediaPlayerClick;
+    public static void setMediaclicked(String pathstr){
+        mediaclick=new Media(SoundController.class.getResource(pathstr).toExternalForm());//mouseEnterCard
+        mediaPlayerClick=new MediaPlayer(mediaclick);
+    }
+
+    public static Media mediamouseEnter;
+    public static MediaPlayer mediaPlayermouseEnter;
+    public static void setMediaEnter(String pathstr){
+        mediamouseEnter=new Media(SoundController.class.getResource(pathstr).toExternalForm());//mouseEnterCard
+        mediaPlayermouseEnter=new MediaPlayer(mediamouseEnter);
+    }
+
+    public static Media mediaBG;
+    public static MediaPlayer mediaPlayerBGr;
+    public static void setMediaBG(String pathstr){
+        mediaBG=new Media(SoundController.class.getResource(pathstr).toExternalForm());//mouseEnterCard
+        mediaPlayerBGr=new MediaPlayer(mediaBG);
+    }
+
+
+
+
+
 }

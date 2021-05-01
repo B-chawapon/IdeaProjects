@@ -12,8 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -58,8 +56,7 @@ public class sceneMenuParn implements Initializable {
 
   // private SoundEffect sound=new SoundEffect();
 
-    public Media menusound;
-    public MediaPlayer mediamenusound;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -86,11 +83,9 @@ public class sceneMenuParn implements Initializable {
                        //  /Users/b.nut/IdeaProjects/slavegameParn/src/audioparn/AHNW.mp3
         //Media media =new Media("file:/Users/b.nut/IdeaProjects/slavegameParn/src/audioparn/AHNW.mp3");
         // menusound = new Media("file:" + System.getProperty("user.dir") + "/src/audio.parn/toy.mp3");
-        menusound=new Media(setMediaFile("toy.mp3"));
-         mediamenusound=new MediaPlayer(menusound);
-        mediamenusound.play();
-        mediamenusound.setVolume(0.3);
-        mediamenusound.setCycleCount(99);
+        SoundController.setMediamenusound("/audio.parn/toy.mp3");
+        SoundController.mediamenusound.play();
+
 
 
 
@@ -106,7 +101,7 @@ public class sceneMenuParn implements Initializable {
         Parent sceneCardParent = FXMLLoader.load(getClass().getResource("scenePlayer1copy.fxml"));
         Scene sceneCardScene = new Scene(sceneCardParent);
         Stage stage = (Stage) startButton.getScene().getWindow();
-        mediamenusound.stop();
+        SoundController.mediamenusound.stop();
         stage.setScene(sceneCardScene);
         stage.show();
 
@@ -137,25 +132,23 @@ public class sceneMenuParn implements Initializable {
         if(onOFF==true){
             lumpong.setImage(imgMute);
             onOFF=false;
-            mediamenusound.setVolume(0);
+            SoundController.mediamenusound.setVolume(0);
         }
         else if(onOFF==false){
 
             lumpong.setImage(imgunMute);
             onOFF=true;
-            mediamenusound.setVolume(0.3);
+            SoundController.mediamenusound.setVolume(0.3);
         }
     }
 
 
 
-    private Media mediaClick;
-    private MediaPlayer mediaClickPlayer;
+
     @FXML
     public void upScale(MouseEvent mouseEvent) {
-        mediaClick = new Media(setMediaFile("mouseEnter1.mp3"));
-        mediaClickPlayer = new MediaPlayer(mediaClick);
-        mediaClickPlayer.play();
+        SoundController.setMediaclicked("/audio.parn/mouseEnter1.mp3");
+        SoundController.mediaPlayerClick.play();
         String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
         if (Imageviewevent.equals("startButton")) {
             startButton.setScaleX(1.3);
@@ -173,7 +166,7 @@ public class sceneMenuParn implements Initializable {
 
     @FXML
     public void defaultScale(MouseEvent mouseEvent) {
-        mediaClickPlayer.stop();
+       SoundController.mediaPlayerClick.stop();
         String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
         if (Imageviewevent.equals("startButton")) {
             startButton.setScaleX(1);

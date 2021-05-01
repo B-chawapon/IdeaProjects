@@ -9,8 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -301,16 +299,14 @@ public class scenePlayer1 {
 
     private ArrayList<Integer> indexOfselectedCard = new ArrayList<>();
 
-    public static Media mediaselectedCard;
-    public static MediaPlayer mediaPlayerselectedCard;
+
     @FXML
     public void selectCard(MouseEvent mouseEvent) {
-        mediaPlayerUpScaleCard.stop();
-         mediaselectedCard=new Media(setMediaFile("mouseEnter1.mp3"));
-         mediaPlayerselectedCard = new MediaPlayer(mediaselectedCard);
+        SoundController.mediaPlayermouseEnter.stop();
 
-         mediaPlayerselectedCard.setVolume(SoundController.sfxvolume);
-        mediaPlayerselectedCard.play();
+        SoundController.setMediaclicked("/audio.parn/mouseEnter1.mp3");
+         SoundController.mediaPlayerClick.setVolume(SoundController.sfxvolume);
+        SoundController.mediaPlayerClick.play();
         String Imageview = ((ImageView) mouseEvent.getSource()).getId();
         int index = getIndexCard(Imageview);
 
@@ -442,16 +438,13 @@ public class scenePlayer1 {
         }
 
     }
-    public static Media mediaUpscaleCard;
-    public static MediaPlayer mediaPlayerUpScaleCard;
+
     @FXML
     public void upScale(MouseEvent mouseEvent) {
-        mediaUpscaleCard=new Media(setMediaFile("mouseEnterCard.mp3"));
-        mediaPlayerUpScaleCard=new MediaPlayer(mediaUpscaleCard);
+        SoundController.setMediaEnter("/audio.parn/mouseEnterCard.mp3");
+        SoundController.mediaPlayermouseEnter.setVolume(SoundController.sfxvolume);
+        SoundController.mediaPlayermouseEnter.play();
 
-        mediaPlayerUpScaleCard.setVolume(SoundController.sfxvolume);
-        mediaPlayerUpScaleCard.play();
-        System.out.println(mediaPlayerUpScaleCard.getVolume()+" = VO");
         String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
         int i = getIndexCard(Imageviewevent);
         if (canUpScaleCard[i] == false) {
@@ -472,17 +465,14 @@ public class scenePlayer1 {
         }
     }
 
-    public static Media soundbgmedia;
-    public static MediaPlayer soundmediaPlayer;
+
 
     @FXML
     void initialize() {
-        soundbgmedia=new Media(setMediaFile("soundbg.mp3"));
-        soundmediaPlayer=new MediaPlayer(soundbgmedia);
-
-        soundmediaPlayer.setVolume(SoundController.bgvolume);
-        soundmediaPlayer.play();
-        soundmediaPlayer.setCycleCount(99);
+        SoundController.setMediaBG("/audio.parn/soundbg.mp3");
+        SoundController.mediaPlayerBGr.setVolume(SoundController.bgvolume);
+        SoundController.mediaPlayerBGr.play();
+        SoundController.mediaPlayerBGr.setCycleCount(99);
 
         saveArrayImage();
         saveArrayPlayer();
@@ -592,9 +582,9 @@ public class scenePlayer1 {
         Stage sceneCardStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneCardStage.setScene(sceneCardScene);
 
-        soundmediaPlayer.stop();
-        mediaPlayerselectedCard.stop();
-        mediaPlayerUpScaleCard.stop();
+        SoundController.mediaPlayerBGr.stop();
+        SoundController.mediaPlayerClick.stop();
+        SoundController.mediaPlayermouseEnter.stop();
         sceneCardStage.show();
     }
 
