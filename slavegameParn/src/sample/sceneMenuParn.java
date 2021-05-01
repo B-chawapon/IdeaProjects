@@ -121,16 +121,33 @@ public class sceneMenuParn implements Initializable {
 //    Media op = new Media(new File(path).toURI().toString());
 //    MediaPlayer opPlayer = new MediaPlayer(op);
 
+   
     @FXML
+    private ImageView lumpong;
+    @FXML
+    private Image imgunMute = new Image("/pics.parn/unMute.png");
+    @FXML
+    private Image imgMute = new Image("/pics.parn/mute.png");
 
-    private void speakerOnAction(MouseEvent event) {
-        //opPlayer.play();
+
+    private  boolean onOFF = true;
+    @FXML
+    private void speakerAction(MouseEvent event) {
+
+        if(onOFF==true){
+            lumpong.setImage(imgMute);
+            onOFF=false;
+            mediamenusound.setVolume(0);
+        }
+        else if(onOFF==false){
+
+            lumpong.setImage(imgunMute);
+            onOFF=true;
+            mediamenusound.setVolume(0.3);
+        }
     }
 
-    @FXML
-    private void muteAction(MouseEvent event) {
-        //opPlayer.stop();
-    }
+
 
     private Media mediaClick;
     private MediaPlayer mediaClickPlayer;

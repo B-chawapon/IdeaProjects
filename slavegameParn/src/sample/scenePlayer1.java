@@ -1,7 +1,11 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -68,6 +72,8 @@ public class scenePlayer1 {
     @FXML
     private ImageView player0, player1, player2, player3;//parn added, worked, but not fully successful. Need to random the first player
 
+    @FXML
+    private ImageView optionButton;
     private double sizeViewPortX = 157;
     private double sizeViewPortY = 228;
     private int indexOFcardOn = 0;
@@ -295,13 +301,15 @@ public class scenePlayer1 {
 
     private ArrayList<Integer> indexOfselectedCard = new ArrayList<>();
 
-    private Media mediaselectedCard;
-    private MediaPlayer mediaPlayerselectedCard;
+    public static Media mediaselectedCard;
+    public static MediaPlayer mediaPlayerselectedCard;
     @FXML
     public void selectCard(MouseEvent mouseEvent) {
         mediaPlayerUpScaleCard.stop();
          mediaselectedCard=new Media(setMediaFile("mouseEnter1.mp3"));
          mediaPlayerselectedCard = new MediaPlayer(mediaselectedCard);
+
+         mediaPlayerselectedCard.setVolume(popUpController.sfxvolume);
         mediaPlayerselectedCard.play();
         String Imageview = ((ImageView) mouseEvent.getSource()).getId();
         int index = getIndexCard(Imageview);
@@ -434,13 +442,16 @@ public class scenePlayer1 {
         }
 
     }
-    private Media mediaUpscaleCard;
-    private MediaPlayer mediaPlayerUpScaleCard;
+    public static Media mediaUpscaleCard;
+    public static MediaPlayer mediaPlayerUpScaleCard;
     @FXML
     public void upScale(MouseEvent mouseEvent) {
         mediaUpscaleCard=new Media(setMediaFile("mouseEnterCard.mp3"));
         mediaPlayerUpScaleCard=new MediaPlayer(mediaUpscaleCard);
+
+        mediaPlayerUpScaleCard.setVolume(popUpController.sfxvolume);
         mediaPlayerUpScaleCard.play();
+        System.out.println(mediaPlayerUpScaleCard.getVolume()+" = VO");
         String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
         int i = getIndexCard(Imageviewevent);
         if (canUpScaleCard[i] == false) {
@@ -461,9 +472,17 @@ public class scenePlayer1 {
         }
     }
 
+    public static Media soundbgmedia;
+    public static MediaPlayer soundmediaPlayer;
+
     @FXML
     void initialize() {
+        soundbgmedia=new Media(setMediaFile("soundbg.mp3"));
+        soundmediaPlayer=new MediaPlayer(soundbgmedia);
 
+        soundmediaPlayer.setVolume(popUpController.bgvolume);
+        soundmediaPlayer.play();
+        soundmediaPlayer.setCycleCount(99);
 
         saveArrayImage();
         saveArrayPlayer();
@@ -566,17 +585,21 @@ public class scenePlayer1 {
         stage.close();
     }
 
-    /*@FXML
+    @FXML
     private void goBack(MouseEvent event) throws IOException {
         Parent sceneCardParent = FXMLLoader.load(getClass().getResource("sceneMenuParn.fxml"));
         Scene sceneCardScene = new Scene(sceneCardParent);
         Stage sceneCardStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneCardStage.setScene(sceneCardScene);
+
+        soundmediaPlayer.stop();
+        mediaPlayerselectedCard.stop();
+        mediaPlayerUpScaleCard.stop();
         sceneCardStage.show();
-    }*/
+    }
 
     @FXML
-    private void goBack(MouseEvent event) throws IOException {
+    private void option(MouseEvent event) throws IOException {
        popUpController.display();
     }
 

@@ -14,12 +14,12 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneMenuParn">
     <children>
-        <ImageView fx:id="bg" fitHeight="990.0" fitWidth="1619.0" layoutX="-14.0" preserveRatio="true">
+        <ImageView fx:id="bg" fitHeight="962.0" fitWidth="1634.0" layoutX="-18.0" layoutY="-6.0">
             <image>
                 <Image url="@../pics.parn/MenuWall3.jpg" />
             </image>
         </ImageView>
-        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="362.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Princess in Disneyland" AnchorPane.topAnchor="76.90185546875">
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="469.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Princess in Disneyland" AnchorPane.topAnchor="94.490234375">
             <font>
                 <Font name="Bell MT" size="75.0" />
             </font>
@@ -52,9 +52,9 @@
                 </HBox>
             </top>
             <center>
-                <VBox alignment="TOP_CENTER" prefHeight="366.0" prefWidth="1440.0" spacing="10.0" BorderPane.alignment="CENTER">
+                <VBox alignment="TOP_CENTER" prefHeight="229.0" prefWidth="1113.0" spacing="10.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Pane prefHeight="60.0" prefWidth="1440.0">
+                        <Pane prefHeight="64.0" prefWidth="1306.0">
                             <children>
                                 <TextField fx:id="player0Name" alignment="CENTER" layoutX="399.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Mulan">
                            <font>
@@ -93,22 +93,11 @@
                     </children>
                 </VBox>
             </center>
-            <right>
-                <VBox alignment="CENTER_LEFT" prefHeight="389.0" prefWidth="94.0" spacing="60.0" BorderPane.alignment="CENTER_LEFT">
-                    <children>
-                        <ImageView fx:id="speakerOn" fitHeight="100.0" fitWidth="62.0" onMouseClicked="#speakerOnAction" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
-                            <image>
-                                <Image url="@../pics.parn/unMute.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="mute" fitHeight="72.0" fitWidth="63.0" onMouseClicked="#muteAction" onMouseEntered="#upScale" onMouseExited="#defaultScale" preserveRatio="true">
-                            <image>
-                                <Image url="@../pics.parn/mute.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </VBox>
-            </right>
         </BorderPane>
+      <ImageView fx:id="lumpong" fitHeight="66.0" fitWidth="61.0" layoutX="45.0" layoutY="48.0" onMouseClicked="#speakerAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pics.parn/unMute.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

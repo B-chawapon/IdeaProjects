@@ -15,6 +15,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sceneMenuParn.fxml"));
         primaryStage.setTitle("Princess in Disneyland");
 
+
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

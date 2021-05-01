@@ -156,7 +156,7 @@
                 <Image url="@../pics.parn/accept.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="goBackButton" fitHeight="95.0" fitWidth="159.0" layoutX="75.0" layoutY="653.0" onMouseClicked="#goBack" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
+        <ImageView fx:id="optionButton" fitHeight="95.0" fitWidth="159.0" layoutX="1250.0" layoutY="22.0" onMouseClicked="#option" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
             <image>
                 <Image url="@../pics.parn/goBack.png" />
             </image>
@@ -290,9 +290,14 @@
             </Text>
          </children>
       </VBox>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1171.0" layoutY="65.0"  pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1241.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../pics.parn/KQPS/PocaHontasKing.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="goBackButton" fitHeight="95.0" fitWidth="159.0" layoutX="74.0" layoutY="654.0" onMouseClicked="#goBack" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
+         <image>
+            <Image url="@../pics.parn/goBack.png" />
          </image>
       </ImageView>
     </children>
