@@ -2,13 +2,13 @@ package sample;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SoundController {
+public class SoundController implements upScaleImageView {
 
     @FXML
     private ResourceBundle resources;
@@ -26,11 +26,7 @@ public class SoundController {
     @FXML
     private URL location;
 
-    @FXML
-    void goBack(ActionEvent event) {
-        Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        stage.close();
-    }
+
     @FXML
     public static void display() throws IOException {
         Parent alertParent = FXMLLoader.load(SoundController.class.getResource("popUp.fxml"));
@@ -105,6 +101,30 @@ public class SoundController {
     }
 
 
+    public void goBack(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((ImageView)mouseEvent.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private ImageView goBackButton;
+    @Override
+    public void upScaleButtton(MouseEvent mouseEvent) {
+        String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
+        if (Imageviewevent.equals("goBackButton")) {
+            goBackButton.setScaleX(1.2);
+            goBackButton.setScaleY(1.2);
+        }
+    }
+
+    @Override
+    public void defaultScaleButton(MouseEvent mouseEvent) {
+        String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
+        if (Imageviewevent.equals("goBackButton")) {
+            goBackButton.setScaleX(1);
+            goBackButton.setScaleY(1);
+        }
+    }
 
 
 

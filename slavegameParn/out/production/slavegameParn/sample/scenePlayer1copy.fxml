@@ -158,7 +158,7 @@
         </ImageView>
         <ImageView fx:id="optionButton" fitHeight="95.0" fitWidth="159.0" layoutX="1250.0" layoutY="22.0" onMouseClicked="#option" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
             <image>
-                <Image url="@../pics.parn/goBack.png" />
+                <Image url="@../pics.parn/option.png" />
             </image>
         </ImageView>
         <ImageView fx:id="skipButton" fitHeight="95.0" fitWidth="208.0" layoutX="57.0" layoutY="512.0" onMouseClicked="#skip" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton" preserveRatio="true">
@@ -226,79 +226,79 @@
                 </ImageView>
             </children>
         </VBox>
-      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="149.0" layoutY="40.0" pickOnBounds="true">
-         <image>
-            <Image url="@../pics.parn/cardHand.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="145.0" layoutY="157.0" pickOnBounds="true">
-         <image>
-            <Image url="@../pics.parn/cardHand.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="150.0" layoutY="266.0" pickOnBounds="true">
-         <image>
-            <Image url="@../pics.parn/cardHand.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="148.0" layoutY="383.0" pickOnBounds="true">
-         <image>
-            <Image url="@../pics.parn/cardHand.png" />
-         </image>
-      </ImageView>
-          <Text fx:id="cardp0" fill="#2fffcb" layoutX="167.0" layoutY="93.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="67.5">
-         <font>
-            <Font name="Rockwell" size="35.0" />
-         </font>
-      </Text>
-          <Text fx:id="cardp3" fill="#b5ff92" layoutX="178.0" layoutY="436.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="44.123605728149414">
-         <font>
-            <Font name="Rockwell" size="35.0" />
-         </font>
-      </Text>
-          <Text fx:id="cardp2" fill="#f7e73e" layoutX="182.0" layoutY="318.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13">
-         <font>
-            <Font name="Rockwell" size="35.0" />
-         </font>
-      </Text>
-          <Text fx:id="cardp1" fill="#ff5e5e" layoutX="176.0" layoutY="211.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="44.123779296875">
-         <font>
-            <Font name="Rockwell" size="35.0" />
-         </font>
-      </Text>
-      <VBox alignment="CENTER_LEFT" layoutX="255.0" layoutY="21.0" prefHeight="450.0" prefWidth="128.0" spacing="90.0">
-         <children>
-              <Text fx:id="player0Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player0" wrappingWidth="118.8330078125">
-               <font>
-                  <Font name="Rockwell" size="23.0" />
-               </font>
-            </Text>
-              <Text fx:id="player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" wrappingWidth="118.8330078125">
-               <font>
-                  <Font name="Rockwell" size="23.0" />
-               </font>
-            </Text>
-              <Text fx:id="player2Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" wrappingWidth="118.33337020874023">
-               <font>
-                  <Font name="Rockwell" size="23.0" />
-               </font>
-            </Text>
-              <Text fx:id="player3Name" fill="#fff9f9" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" wrappingWidth="118.8330078125">
-               <font>
-                  <Font name="Rockwell" size="23.0" />
-               </font>
-            </Text>
-         </children>
-      </VBox>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1241.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pics.parn/KQPS/PocaHontasKing.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="goBackButton" fitHeight="95.0" fitWidth="159.0" layoutX="74.0" layoutY="654.0" onMouseClicked="#goBack" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
-         <image>
-            <Image url="@../pics.parn/goBack.png" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="149.0" layoutY="40.0" pickOnBounds="true">
+            <image>
+                <Image url="@../pics.parn/cardHand.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="145.0" layoutY="157.0" pickOnBounds="true">
+            <image>
+                <Image url="@../pics.parn/cardHand.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="150.0" layoutY="266.0" pickOnBounds="true">
+            <image>
+                <Image url="@../pics.parn/cardHand.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="79.0" fitWidth="100.0" layoutX="148.0" layoutY="383.0" pickOnBounds="true">
+            <image>
+                <Image url="@../pics.parn/cardHand.png" />
+            </image>
+        </ImageView>
+        <Text fx:id="cardp0" fill="#2fffcb" layoutX="167.0" layoutY="93.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="67.5">
+            <font>
+                <Font name="Rockwell" size="35.0" />
+            </font>
+        </Text>
+        <Text fx:id="cardp3" fill="#b5ff92" layoutX="178.0" layoutY="436.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="44.123605728149414">
+            <font>
+                <Font name="Rockwell" size="35.0" />
+            </font>
+        </Text>
+        <Text fx:id="cardp2" fill="#f7e73e" layoutX="182.0" layoutY="318.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13">
+            <font>
+                <Font name="Rockwell" size="35.0" />
+            </font>
+        </Text>
+        <Text fx:id="cardp1" fill="#ff5e5e" layoutX="176.0" layoutY="211.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="13" textAlignment="CENTER" wrappingWidth="44.123779296875">
+            <font>
+                <Font name="Rockwell" size="35.0" />
+            </font>
+        </Text>
+        <VBox alignment="CENTER_LEFT" layoutX="255.0" layoutY="21.0" prefHeight="450.0" prefWidth="128.0" spacing="90.0">
+            <children>
+                <Text fx:id="player0Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player0" wrappingWidth="118.8330078125">
+                    <font>
+                        <Font name="Rockwell" size="23.0" />
+                    </font>
+                </Text>
+                <Text fx:id="player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" wrappingWidth="118.8330078125">
+                    <font>
+                        <Font name="Rockwell" size="23.0" />
+                    </font>
+                </Text>
+                <Text fx:id="player2Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" wrappingWidth="118.33337020874023">
+                    <font>
+                        <Font name="Rockwell" size="23.0" />
+                    </font>
+                </Text>
+                <Text fx:id="player3Name" fill="#fff9f9" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" wrappingWidth="118.8330078125">
+                    <font>
+                        <Font name="Rockwell" size="23.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+        <ImageView fx:id="goBackButton" fitHeight="95.0" fitWidth="159.0" layoutX="74.0" layoutY="654.0" onMouseClicked="#goBack" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton" preserveRatio="true">
+            <image>
+                <Image url="@../pics.parn/goBack.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="tradeButton" fitHeight="49.0" fitWidth="105.0" layoutX="978.0" layoutY="515.0" onMouseClicked="#tradeButtonAction" onMouseEntered="#upScaleButtton" onMouseExited="#defaultScaleButton">
+            <image>
+                <Image url="@../pics.parn/trade.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

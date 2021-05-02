@@ -57,21 +57,21 @@
                         <Pane prefHeight="64.0" prefWidth="1306.0">
                             <children>
                                 <TextField fx:id="player0Name" alignment="CENTER" layoutX="399.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Mulan">
-                           <font>
-                              <Font name="Rockwell" size="22.0" />
-                           </font></TextField>
+                                    <font>
+                                        <Font name="Rockwell" size="22.0" />
+                                    </font></TextField>
                                 <TextField fx:id="player1Name" alignment="CENTER" layoutX="610.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Poca">
-                           <font>
-                              <Font name="Rockwell" size="22.0" />
-                           </font></TextField>
+                                    <font>
+                                        <Font name="Rockwell" size="22.0" />
+                                    </font></TextField>
                                 <TextField fx:id="player2Name" alignment="CENTER" layoutX="820.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Snow">
-                           <font>
-                              <Font name="Rockwell" size="22.0" />
-                           </font></TextField>
+                                    <font>
+                                        <Font name="Rockwell" size="22.0" />
+                                    </font></TextField>
                                 <TextField fx:id="player3Name" alignment="CENTER" layoutX="1020.0" layoutY="6.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Tiana">
-                           <font>
-                              <Font name="Rockwell" size="22.0" />
-                           </font></TextField>
+                                    <font>
+                                        <Font name="Rockwell" size="22.0" />
+                                    </font></TextField>
                                 <Button fx:id="okButton" alignment="CENTER" layoutX="766.0" layoutY="15.0" mnemonicParsing="false" text="OK" visible="false" />
                             </children>
                         </Pane>
@@ -94,10 +94,10 @@
                 </VBox>
             </center>
         </BorderPane>
-      <ImageView fx:id="lumpong" fitHeight="66.0" fitWidth="61.0" layoutX="45.0" layoutY="48.0" onMouseClicked="#speakerAction" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pics.parn/unMute.png" />
-         </image>
-      </ImageView>
+        <ImageView fx:id="lumpong" fitHeight="66.0" fitWidth="61.0" layoutX="45.0" layoutY="48.0" onMouseClicked="#speakerAction" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../pics.parn/unMute.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

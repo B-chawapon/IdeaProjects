@@ -130,5 +130,18 @@ public class Player {
         return ID;
     }
 
+    public int countCardOnPlayerHand(){
+        int num = 0;
+        for(int i = 0 ; i < 13 ; i++){
+            if(playerCard[i][0] != 0){
+                num++;
+            }
+        }
+        return num;
+    }
+    public String countCardOnPlayerHandStr(){
+        String temp = String.valueOf(countCardOnPlayerHand());
+        return temp;
+    }
 
 }

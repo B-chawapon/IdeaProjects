@@ -14,15 +14,16 @@ public class Game {
     private int lastFace;
     private int[][] last = new int[4][2];
     private boolean secondRound;
-    private int kQPS;
+    private int kQPS = 1;
     private int amount;
+    private int king, queen, people, slave;
 
     public int getAmount() {
         return amount;
     }
     private boolean isGameStarted;
     private boolean isPlayDouble;
-    private boolean firstRound;
+    private boolean firstRoundEnd;
     Card card = new Card();
     Player p[] = new Player[4];
 
@@ -40,8 +41,7 @@ public class Game {
         p[2].startDrawCard(card.getRandomCard(), 3);
         p[3].startDrawCard(card.getRandomCard(), 4);
 
-        findStartPlayer();
-
+        //findStartPlayer();
         //Testing setRole
         /*for(int i = 0 ; i < 12 ; i++){
             p[0].getPlayerCard()[i][0] = 0;
@@ -59,13 +59,25 @@ public class Game {
 
     }
 
+    public int getKing() {
+        return king;
+    }
+
+    public int getQueen() {
+        return queen;
+    }
+
+    public int getPeople() {
+        return people;
+    }
+
+    public int getSlave() {
+        return slave;
+    }
+
     public int getTurn() {
         return turn;
     }
-
-
-
-
 
     public int getLastSuit() {
         return lastSuit;
@@ -75,6 +87,14 @@ public class Game {
         return lastFace;
     }
 
+    public boolean isFirstRoundEnd() {
+        return firstRoundEnd;
+    }
+
+    public void setFirstRoundEnd(boolean firstRoundEnd) {
+        this.firstRoundEnd = firstRoundEnd;
+    }
+
     public boolean canDownCardByCheckSkip() {
         if (p[0].isSkipTurn() && p[1].isSkipTurn() && p[2].isSkipTurn() && p[3].isSkipTurn()) {
 
@@ -82,7 +102,7 @@ public class Game {
                 last[i][0] = 0;
                 last[i][1] = 0;
             }
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4 && p[i].getKQPS() == 0; i++) {
                 p[i].setSkipTurn(false);
             }
             return false;
@@ -221,7 +241,8 @@ public class Game {
     public boolean checkDownCard(ArrayList<Integer> card) {
         if (p[turn].isFirstPlayerStartWith101(card) && canDownCardByValue(card)) {
             p[turn].addNumberOfCard(card.size());
-            checkTurn();
+            checkGiveKQPS();
+            //  checkTurn();
             return true;
 
         } else {
@@ -231,10 +252,20 @@ public class Game {
 
     }
 
+    public void showCard() {
+        System.out.println(" ");
+        System.out.println("Top face and suit is : " + last[0][0] + " " + last[0][1]);
+        System.out.println("Turn : " + (turn + 1) + " Player : " + p[turn].getID());
+        p[turn].showPlayerCardOnHand();
+        System.out.println("-1 for skip");
+        System.out.print("Choose card : ");
+    }
+
     public void doGame() {
         Scanner input = new Scanner(System.in);
         //Show card on player hand
-        if (p[turn].isSkipTurn() != true) {
+        if (p[turn].isSkipTurn() != true && p[turn].getKQPS() == 0) {
+            System.out.println(" ");
             System.out.println("Top face and suit is : " + last[0][0] + " " + last[0][1]);
             System.out.println("Turn : " + (turn + 1) + " Player : " + p[turn].getID());
             p[turn].showPlayerCardOnHand();
@@ -255,12 +286,23 @@ public class Game {
         }
     }
 
-    public void checkFirstRoundEnd(){
-        if(kQPS == 4){
-            secondRound = true;
+    public void checkFirstRoundEnd() {
+        if (kQPS == 4) {
+            System.out.println("Round End");
+            firstRoundEnd = true;
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 13; j++) {
+                    p[i].getPlayerCard()[j][0] = 0;
+                    p[i].getPlayerCard()[j][1] = 0;
+                }
+            }
+            for (int i = 0; i < 52; i++) {
+                card.getRandomCard()[i] = 0;
+            }
+
         }
     }
-    private int king, queen, people, slave;
+
     public void tradeCard() {
 
         for (int i = 0; i < 4; i++) {
@@ -279,22 +321,44 @@ public class Game {
         }
     }
 
-    public int getKing() {
-        return king;
+    public void setTurn(int turn) {
+        this.turn = turn;
     }
-
-    public int getQueen() {
-        return queen;
-    }
-
-    public int getPeople() {
-        return people;
-    }
-
-    public int getSlave() {
-        return slave;
-    }
-
+    /*
+        public void tradeKing(ArrayList<Integer> card, int king, int slave) {
+            if (card.get(0) > card.get(1)) {
+                int temp = card.get(0);
+                card.set(0, card.get(1));
+                card.set(1, temp);
+            }
+            int[][] arrayTemp = new int[2][2];
+            arrayTemp[0][0] = p[king].getPlayerCard()[card.get(0)][0];
+            arrayTemp[0][1] = p[king].getPlayerCard()[card.get(0)][1];
+            arrayTemp[1][0] = p[king].getPlayerCard()[card.get(1)][0];
+            arrayTemp[1][1] = p[king].getPlayerCard()[card.get(1)][1];
+            p[king].getPlayerCard()[card.get(0)][0] = p[slave].getPlayerCard()[0][0];
+            p[king].getPlayerCard()[card.get(0)][1] = p[slave].getPlayerCard()[0][1];
+            p[king].getPlayerCard()[card.get(1)][0] = p[slave].getPlayerCard()[1][0];
+            p[king].getPlayerCard()[card.get(1)][1] = p[slave].getPlayerCard()[1][1];
+            p[slave].getPlayerCard()[0][0] = arrayTemp[0][0];
+            p[slave].getPlayerCard()[0][1] = arrayTemp[0][1];
+            p[slave].getPlayerCard()[1][0] = arrayTemp[1][0];
+            p[slave].getPlayerCard()[1][1] = arrayTemp[1][1];
+            p[king].minToMax();
+            p[slave].minToMax();
+        }
+        public void tradeQueen(ArrayList<Integer> card, int queen, int people) {
+            int[] arrayTemp = new int[2];
+            arrayTemp[0] = p[queen].getPlayerCard()[card.get(0)][0];
+            arrayTemp[1] = p[queen].getPlayerCard()[card.get(0)][1];
+            p[queen].getPlayerCard()[card.get(0)][0] = p[people].getPlayerCard()[0][0];
+            p[queen].getPlayerCard()[card.get(0)][1] = p[people].getPlayerCard()[0][1];
+            p[people].getPlayerCard()[0][0] = arrayTemp[0];
+            p[people].getPlayerCard()[0][0] = arrayTemp[1];
+            p[queen].minToMax();
+            p[people].minToMax();
+        }
+        */
     public void tradeKing(ArrayList<Integer> card, int king, int slave) {
         if (card.get(0) > card.get(1)) {
             int temp = card.get(0);
@@ -307,15 +371,15 @@ public class Game {
         arrayTemp[1][0] = p[king].getPlayerCard()[card.get(1)][0];
         arrayTemp[1][1] = p[king].getPlayerCard()[card.get(1)][1];
 
-        p[king].getPlayerCard()[card.get(0)][0] = p[slave].getPlayerCard()[0][0];
-        p[king].getPlayerCard()[card.get(0)][1] = p[slave].getPlayerCard()[0][1];
-        p[king].getPlayerCard()[card.get(1)][0] = p[slave].getPlayerCard()[1][0];
-        p[king].getPlayerCard()[card.get(1)][1] = p[slave].getPlayerCard()[1][1];
+        p[king].getPlayerCard()[card.get(0)][0] = p[slave].getPlayerCard()[11][0];
+        p[king].getPlayerCard()[card.get(0)][1] = p[slave].getPlayerCard()[11][1];
+        p[king].getPlayerCard()[card.get(1)][0] = p[slave].getPlayerCard()[12][0];
+        p[king].getPlayerCard()[card.get(1)][1] = p[slave].getPlayerCard()[12][1];
 
-        p[slave].getPlayerCard()[0][0] = arrayTemp[0][0];
-        p[slave].getPlayerCard()[0][1] = arrayTemp[0][1];
-        p[slave].getPlayerCard()[1][0] = arrayTemp[1][0];
-        p[slave].getPlayerCard()[1][1] = arrayTemp[1][1];
+        p[slave].getPlayerCard()[11][0] = arrayTemp[0][0];
+        p[slave].getPlayerCard()[11][1] = arrayTemp[0][1];
+        p[slave].getPlayerCard()[12][0] = arrayTemp[1][0];
+        p[slave].getPlayerCard()[12][1] = arrayTemp[1][1];
 
         p[king].minToMax();
         p[slave].minToMax();
@@ -326,39 +390,47 @@ public class Game {
         arrayTemp[0] = p[queen].getPlayerCard()[card.get(0)][0];
         arrayTemp[1] = p[queen].getPlayerCard()[card.get(0)][1];
 
-        p[queen].getPlayerCard()[card.get(0)][0] = p[people].getPlayerCard()[0][0];
-        p[queen].getPlayerCard()[card.get(0)][1] = p[people].getPlayerCard()[0][1];
+        p[queen].getPlayerCard()[card.get(0)][0] = p[people].getPlayerCard()[12][0];
+        p[queen].getPlayerCard()[card.get(0)][1] = p[people].getPlayerCard()[12][1];
 
         p[people].getPlayerCard()[0][0] = arrayTemp[0];
         p[people].getPlayerCard()[0][0] = arrayTemp[1];
 
         p[queen].minToMax();
         p[people].minToMax();
-    }
 
+    }
     public void skip() {
-        p[turn].setSkipTurn(true);
-        int temp = 0;
-        for (int i = 0; i < 4; i++) {
-            if (p[i].isSkipTurn() == true) {
-                temp++;
+        if (p[turn].getPlayerCard()[0][0] != 1 || p[turn].getPlayerCard()[0][1] != 1) {
+            p[turn].setSkipTurn(true);
+            int temp = 0;
+            for (int i = 0; i < 4; i++) {
+                if (p[i].isSkipTurn() == true) {
+                    temp++;
+                }
             }
-        }
-        if (temp == 3) {
-            /*lastFace = 0;
+            if (temp >= 3) {
+                /*lastFace = 0;
             lastSuit = 0;*/
-            for (int i = 0; i < 4; i++) {
-                last[i][0] = 0;
-                last[i][1] = 0;
+                for (int i = 0; i < 4; i++) {
+                    last[i][0] = 0;
+                    last[i][1] = 0;
+                }
+                amount = 0;
+                isGameStarted = false;
+                isPlayDouble = false;
+                for (int i = 0; i < 4; i++) {
+                    if (p[i].getKQPS() == 0) {
+                        p[i].setSkipTurn(false);
+                    }
+
+                }
             }
-            amount = 0;
-            isGameStarted = false;
-            isPlayDouble = false;
-            for (int i = 0; i < 4; i++) {
-                p[i].setSkipTurn(false);
-            }
+            checkTurn();
+        } else {
+            System.out.println("Please down 101");
         }
-        checkTurn();
+
     }
 
     /**
@@ -388,40 +460,61 @@ public class Game {
 
     private void checkGiveKQPS() {
 
-        if (p[turn].getCountCardOnPlayerHand() == 13) {
+        if (p[turn].countCardOnPlayerHand() == 0 && p[turn].getKQPS() == 0) {
             p[turn].setKQPS(kQPS);
-            System.out.println(p[turn].getKQPS());
-            showKQPS(p[turn].getKQPS());
+
             if (kQPS == 3) {
                 for (int i = 0; i < 4; i++) {
                     if (p[i].getKQPS() == 0) {
                         p[i].setKQPS(4);
+                        p[i].setSkipTurn(true);
 
                     }
                 }
             }
             kQPS += 1;
-
+            p[turn].setSkipTurn(true);
         }
+        for (int i = 0; i < 4; i++) {
+            showKQPS(i);
+        }
+
         checkFirstRoundEnd();
 
     }
 
-
-
     public void showKQPS(int order) {//To show what role he got from victory first round
-        System.out.println("Player : " + Card.KQPS[p[order].getKQPS()]);
+        System.out.println("Player : " + order + " " + Card.KQPS[p[order].getKQPS()]);
     }
 
     public int[][] getLast() {
         return last;
     }
 
-    public boolean isSecondRound() {
-        return secondRound;
+    public void cheat() {
+
+        for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < 12; i++) {
+                p[j].getPlayerCard()[i][0] = 0;
+                p[j].getPlayerCard()[i][1] = 0;
+
+            }
+            p[j].addNumberOfCard(j);
+        }
     }
 
-    public void setSecondRound(boolean secondRound) {
-        this.secondRound = secondRound;
+    public void restart() {
+        for (int i = 0; i < 4; i++) {
+            p[i].setKQPS(0);
+            p[i].setSkipTurn(false);
+
+        }
+        for (int i = 0; i < 4; i++) {
+            last[i][0] = 0;
+            last[i][1] = 0;
+        }
+        kQPS = 1;
+        amount = 0;
     }
+
 }

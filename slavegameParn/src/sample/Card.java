@@ -6,17 +6,19 @@ import java.util.Random;
  */
 public class Card {
     static final String[] SUITS = {"Clubs", "Diamonds", "Hearts" ,"Spades"};
-    static final String[] KQPS = {"King", "Queen", "People" ,"Slave"};
+    static final String[] KQPS = {"Null", "King", "Queen", "People" ,"Slave"};
     static final String[] FACES = { "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" , "A", "2",};
     private int[] randomCard = new int[52];
     public Card() {
     }
 
+
+
     public void fillRandomCard(){
         Random rand = new Random();
         System.out.println("fill working");
         int r;
-        randomCard[0] = ((1+(int)(Math.random()*5))*100) + (1+(int)(Math.random()*14));
+        randomCard[0] = ((1+(int)(Math.random()*4))*100) + (1+(int)(Math.random()*13));
         int row = 1;
         do{
             r = ((1+(int)(Math.random()*4))*100) + (1+(int)(Math.random()*13));
