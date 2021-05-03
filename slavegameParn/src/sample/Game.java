@@ -22,8 +22,9 @@ public class Game {
         return amount;
     }
     private boolean isGameStarted;
-    private boolean isPlayDouble;
+    boolean isPlayDouble;
     private boolean firstRoundEnd;
+    private int lastPlayerWhoDownCard;
     Card card = new Card();
     Player p[] = new Player[4];
 
@@ -57,6 +58,14 @@ public class Game {
         this.lastSuit = suit;
         this.lastFace = face;
 
+    }
+
+    public boolean isSecondRound() {
+        return secondRound;
+    }
+
+    public void setSecondRound(boolean secondRound) {
+        this.secondRound = secondRound;
     }
 
     public int getKing() {
@@ -115,11 +124,11 @@ public class Game {
     public boolean isGameStarted(int size) {
         if (size <= 4 && size > 0) {
             if (isGameStarted == false) {
-                if (size == 1 || size == 2) {
-                    isGameStarted = true;
-                    amount = size;
-                    return true;
-                }
+//                if (size == 1 || size == 2) {
+                isGameStarted = true;
+                amount = size;
+                return true;
+//                }
             } else {
                 if (amount == size) {
                     return true;
@@ -130,7 +139,7 @@ public class Game {
                 }
             }
         }
-
+        System.out.println("is game start");
         return false;
 
     }
@@ -141,6 +150,7 @@ public class Game {
             last[i][0] = p[turn].getPlayerCard()[card.get(i)][0];
             last[i][1] = p[turn].getPlayerCard()[card.get(i)][1];
         }
+        //Bubble sort
         for (int i = 0; i < 4 - 1; i++) {
             for (int j = 0; j < 4 - i - 1; j++) {
                 int temp;
@@ -178,6 +188,22 @@ public class Game {
 
     public boolean canDownCardByValue(ArrayList<Integer> card) {
         if (isSameNumber(card) && isGameStarted(card.size())) {
+            //sort card max is at index 0
+            for (int i = 0; i < card.size() - 1; i++) {
+                for (int j = 0; j < card.size() - i - 1; j++) {
+                    int temp;
+                    /*if (last[j][1] < last[j + 1][1]) {
+                        temp = last[j][1];
+                        last[j][1] = last[j + 1][1];
+                        last[j + 1][1] = temp;
+                    }*/
+                    if (card.get(j) < card.get(j + 1)) {
+                        temp = card.get(j);
+                        card.set(j, card.get(j + 1));
+                        card.set(j + 1, temp);
+                    }
+                }
+            }
             if (amount == 1 || amount == 2) {
                 if (p[turn].getPlayerCard()[card.get(0)][0] > last[0][0]) {
                     /*lastFace = p[turn].getPlayerCard()[card.get(0)][0];
@@ -228,21 +254,91 @@ public class Game {
                 }
             }
         }
+        System.out.println("cccccccccccccccccccc");
         return false;
+
     }
 
-    public void checkTurn() {
-        turn++;
-        if (turn > 3) {
-            turn = 0;
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+    public void checkTurn(boolean sk) {
+
+        if (sk == true) {
+            p[turn].setSkipTurn(true);
+            if (isEveryoneSkip()) {//---hard condition
+                System.out.println("is everyone skip");
+                resetSkip();//----lastPlayerWhoDownCard
+                //turn = (turn + 1) % 4;
+                while (p[turn].isSkipTurn() == true) {
+                    System.out.println("loop1");
+                    turn = (turn + 1) % 4;
+                }
+            } else {
+                while (p[turn].isSkipTurn() == true) {
+                    turn = (turn + 1) % 4;
+                    System.out.println("loop2");
+                }
+            }
         }
+        if (sk == false) {
+            turn = (turn + 1) % 4;
+            if (isEveryoneSkip()) {
+                resetSkip();
+            }
+            while (p[turn].isSkipTurn() == true && firstRoundEnd == false) {
+                turn = (turn + 1) % 4;
+                System.out.println("loop3");
+            }
+        }
+    }
+
+    public boolean isEveryoneSkip() {
+        int temp = 0;
+        int x = 0;
+        for (int i = 0; i < 4; i++) {
+            if (p[i].isSkipTurn() == true) {
+                temp++;
+            }
+        }
+        if (justGetRole == true) {
+            x = 4;
+        } else {
+            x = 3;
+        }
+        if (temp == x) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void resetSkip() {
+        for (int i = 0; i < 4; i++) {
+            last[i][0] = 0;
+            last[i][1] = 0;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (p[i].getKQPS() == 0) {
+                p[i].setSkipTurn(false);
+            }
+        }
+        turn = lastPlayerWhoDownCard;
+        amount = 0;
+        isGameStarted = false;
+        isPlayDouble = false;
+
     }
 
     public boolean checkDownCard(ArrayList<Integer> card) {
         if (p[turn].isFirstPlayerStartWith101(card) && canDownCardByValue(card)) {
             p[turn].addNumberOfCard(card.size());
+            lastPlayerWhoDownCard = turn;
             checkGiveKQPS();
-            //  checkTurn();
+            //checkTurn(false);
+
             return true;
 
         } else {
@@ -282,7 +378,7 @@ public class Game {
                 checkDownCard(card);
             }
         } else {
-            checkTurn();
+            //checkTurn();
         }
     }
 
@@ -306,6 +402,7 @@ public class Game {
     public void tradeCard() {
 
         for (int i = 0; i < 4; i++) {
+
             if (p[i].getKQPS() == 1) {
                 king = i;
             }
@@ -321,44 +418,6 @@ public class Game {
         }
     }
 
-    public void setTurn(int turn) {
-        this.turn = turn;
-    }
-    /*
-        public void tradeKing(ArrayList<Integer> card, int king, int slave) {
-            if (card.get(0) > card.get(1)) {
-                int temp = card.get(0);
-                card.set(0, card.get(1));
-                card.set(1, temp);
-            }
-            int[][] arrayTemp = new int[2][2];
-            arrayTemp[0][0] = p[king].getPlayerCard()[card.get(0)][0];
-            arrayTemp[0][1] = p[king].getPlayerCard()[card.get(0)][1];
-            arrayTemp[1][0] = p[king].getPlayerCard()[card.get(1)][0];
-            arrayTemp[1][1] = p[king].getPlayerCard()[card.get(1)][1];
-            p[king].getPlayerCard()[card.get(0)][0] = p[slave].getPlayerCard()[0][0];
-            p[king].getPlayerCard()[card.get(0)][1] = p[slave].getPlayerCard()[0][1];
-            p[king].getPlayerCard()[card.get(1)][0] = p[slave].getPlayerCard()[1][0];
-            p[king].getPlayerCard()[card.get(1)][1] = p[slave].getPlayerCard()[1][1];
-            p[slave].getPlayerCard()[0][0] = arrayTemp[0][0];
-            p[slave].getPlayerCard()[0][1] = arrayTemp[0][1];
-            p[slave].getPlayerCard()[1][0] = arrayTemp[1][0];
-            p[slave].getPlayerCard()[1][1] = arrayTemp[1][1];
-            p[king].minToMax();
-            p[slave].minToMax();
-        }
-        public void tradeQueen(ArrayList<Integer> card, int queen, int people) {
-            int[] arrayTemp = new int[2];
-            arrayTemp[0] = p[queen].getPlayerCard()[card.get(0)][0];
-            arrayTemp[1] = p[queen].getPlayerCard()[card.get(0)][1];
-            p[queen].getPlayerCard()[card.get(0)][0] = p[people].getPlayerCard()[0][0];
-            p[queen].getPlayerCard()[card.get(0)][1] = p[people].getPlayerCard()[0][1];
-            p[people].getPlayerCard()[0][0] = arrayTemp[0];
-            p[people].getPlayerCard()[0][0] = arrayTemp[1];
-            p[queen].minToMax();
-            p[people].minToMax();
-        }
-        */
     public void tradeKing(ArrayList<Integer> card, int king, int slave) {
         if (card.get(0) > card.get(1)) {
             int temp = card.get(0);
@@ -400,18 +459,26 @@ public class Game {
         p[people].minToMax();
 
     }
+
     public void skip() {
-        if (p[turn].getPlayerCard()[0][0] != 1 || p[turn].getPlayerCard()[0][1] != 1) {
-            p[turn].setSkipTurn(true);
+        if ((p[turn].getPlayerCard()[0][0] != 1 || p[turn].getPlayerCard()[0][1] != 1) || secondRound) {
+            //p[turn].setSkipTurn(true);
+
             int temp = 0;
-            for (int i = 0; i < 4; i++) {
+            /*for (int i = 0; i < 4; i++) {
                 if (p[i].isSkipTurn() == true) {
                     temp++;
-                }
+                }4
             }
-            if (temp >= 3) {
-                /*lastFace = 0;
-            lastSuit = 0;*/
+            if(kQPS == 1){
+                turn = lastPlayerWhoDownCard;
+            }
+            else if(kQPS > 1){
+
+            }*/
+
+ /*if (temp >= 3) {
+
                 for (int i = 0; i < 4; i++) {
                     last[i][0] = 0;
                     last[i][1] = 0;
@@ -423,10 +490,9 @@ public class Game {
                     if (p[i].getKQPS() == 0) {
                         p[i].setSkipTurn(false);
                     }
-
                 }
-            }
-            checkTurn();
+            }*/
+            checkTurn(true);
         } else {
             System.out.println("Please down 101");
         }
@@ -457,12 +523,14 @@ public class Game {
     public int[][] getCardOnPlyerHand(int i) {
         return p[i].getPlayerCard();
     }
+    private boolean justGetRole;
 
     private void checkGiveKQPS() {
 
         if (p[turn].countCardOnPlayerHand() == 0 && p[turn].getKQPS() == 0) {
             p[turn].setKQPS(kQPS);
 
+            justGetRole = true;
             if (kQPS == 3) {
                 for (int i = 0; i < 4; i++) {
                     if (p[i].getKQPS() == 0) {
@@ -515,6 +583,7 @@ public class Game {
         }
         kQPS = 1;
         amount = 0;
+        isGameStarted = false;
     }
 
 }

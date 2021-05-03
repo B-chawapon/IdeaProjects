@@ -6,6 +6,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -41,7 +42,8 @@ public class scenePlayer1 implements upScaleImageView {
     @FXML
     private Text cardp0, cardp1, cardp2, cardp3, player0Name, player1Name, player2Name, player3Name;//card counting on the left side of players pics. Not start to do sth. with it yet ka
 
-    //@FXML
+    @FXML
+    private Button cheatButton;
     //public void AcceptButton(ActionEvent actionEvent) {
     //System.out.println(indexOfselectedCard);
     //System.out.println(indexOfselectedCard.indexOf(9));
@@ -60,15 +62,17 @@ public class scenePlayer1 implements upScaleImageView {
     }*/
 
     /*mouseclicked(){
-                    if()
-                        acceptbutton
-                }*/
+                          if()
+                              acceptbutton
+                      }*/
     @FXML
     private ImageView card0, card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12;
     @FXML
     private ImageView pot0, pot1, pot2, pot3, pot4, pot5, pot6;//parn add pot1.. pot6 for add multiple cards, but not start yet ka
     @FXML
     private ImageView player0, player1, player2, player3;//parn added, worked, but not fully successful. Need to random the first player
+    @FXML
+    private ImageView mulanMedal, pocaMedal, snowMedal, tianaMedal;//parn added, worked, but not fully successful. Need to random the first player
 
     @FXML
     private ImageView optionButton;
@@ -82,12 +86,16 @@ public class scenePlayer1 implements upScaleImageView {
     private ArrayList<ImageView> card52 = new ArrayList<ImageView>();
     private ArrayList<ImageView> playerList = new ArrayList<ImageView>();
     private ArrayList<ImageView> potList = new ArrayList<ImageView>();
+    private ArrayList<ImageView> medalPotList = new ArrayList<ImageView>();
     private ArrayList<Image> mulanList = new ArrayList<Image>();
     private ArrayList<Image> pocaList = new ArrayList<Image>();
     private ArrayList<Image> snowList = new ArrayList<Image>();
     private ArrayList<Image> tianaList = new ArrayList<Image>();
+    private ArrayList<Image> medalList = new ArrayList<Image>();
     private ArrayList<Integer> tradeList = new ArrayList<Integer>();
+
     private boolean isTrading = false;
+    public static ArrayList<Integer> Data = new ArrayList<>();
 
     private void saveArrayImage() {
 
@@ -104,6 +112,21 @@ public class scenePlayer1 implements upScaleImageView {
         card52.add(card10);
         card52.add(card11);
         card52.add(card12);
+
+    }
+
+    private void saveArrayMedal() {
+
+        medalPotList.add(mulanMedal);
+        medalPotList.add(pocaMedal);
+        medalPotList.add(snowMedal);
+        medalPotList.add(tianaMedal);
+        Image goldMed = new Image("/pics.parn/goldMedal.png");
+        Image platMed = new Image("/pics.parn/platinumMedal.png");
+        Image copperMed = new Image("/pics.parn/copperMedal.png");
+        medalList.add(goldMed);
+        medalList.add(platMed);
+        medalList.add(copperMed);
 
     }
 
@@ -295,13 +318,10 @@ public class scenePlayer1 implements upScaleImageView {
 
 //        mediaPlayerselectedCard.setVolume(SoundController.sfxvolume);
 //        mediaPlayerselectedCard.play();
-
         SoundController.mediaPlayermouseEnter.stop();
         SoundController.setMediaclicked("/audio.parn/mouseEnter1.mp3");
         SoundController.mediaPlayerClick.setVolume(SoundController.sfxvolume);
         SoundController.mediaPlayerClick.play();
-
-
 
         String Imageview = ((ImageView) mouseEvent.getSource()).getId();
         int index = getIndexCard(Imageview);
@@ -494,7 +514,6 @@ public class scenePlayer1 implements upScaleImageView {
 //    public static Media mediaUpscaleCard;
 //    public static MediaPlayer mediaPlayerUpScaleCard;
 
-
     @FXML
     public void upScale(MouseEvent mouseEvent) {
 //        mediaUpscaleCard=new Media(setMediaFile("mouseEnterCard.mp3"));
@@ -515,7 +534,6 @@ public class scenePlayer1 implements upScaleImageView {
         }
 
     }
-
 
     @FXML
     public void defaultScale(MouseEvent mouseEvent) {
@@ -568,11 +586,14 @@ public class scenePlayer1 implements upScaleImageView {
         SoundController.mediaPlayerBGr.setVolume(SoundController.bgvolume);
         SoundController.mediaPlayerBGr.play();
         SoundController.mediaPlayerBGr.setCycleCount(99);
+
 //
 //        soundmediaPlayer.setVolume(SoundController.bgvolume);
 //        soundmediaPlayer.play();
 //        soundmediaPlayer.setCycleCount(99);
         game.cheat();
+//        cheatButton.setVisible(false);
+//        goBackButton.setVisible(false);
         game.findStartPlayer();
         saveArrayImage();
         saveArrayPlayer();
@@ -581,6 +602,8 @@ public class scenePlayer1 implements upScaleImageView {
         savePocaList();
         saveSnowList();
         saveTianaList();
+        saveArrayMedal();
+
         tradeButton.setVisible(false);
 
         setValueCard(game.p[game.getTurn()].getPlayerCard(), card52);
@@ -599,16 +622,33 @@ public class scenePlayer1 implements upScaleImageView {
     @FXML
     int turnPlayer = 0;
 
-    public void accept(MouseEvent mouseEvent) {
+    public void accept(MouseEvent mouseEvent) throws IOException {
         //String Imageviewevent = ((ImageView) mouseEvent.getSource()).getId();
 
         if (indexOfselectedCard.isEmpty() != true) {//if that index is valid, you can accept
             if (game.checkDownCard(indexOfselectedCard) == true) {//
-                System.out.println("cncdncdncndcndncdcndncdncndcndncndcndncdncndcndcncdncndcndcdncndndcncndcndncncnncdncndcncndncdncndcnnccncdncndcndn");
                 setPot();
                 setKQPSImg();
-                game.checkTurn();
+                game.checkTurn(false);
                 if (game.isFirstRoundEnd() && countTrade == 0) {//show King's Cards on hand
+                    if (game.isSecondRound() == true) {
+                        Data.add(game.p[0].getKQPS());
+                        Data.add(game.p[1].getKQPS());
+                        Data.add(game.p[2].getKQPS());
+                        Data.add(game.p[3].getKQPS());
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 13; j++) {
+                                game.p[i].getPlayerCard()[j][0] = 0;
+                                game.p[i].getPlayerCard()[j][1] = 0;
+                            }
+                        }
+                        for (int i = 0; i < 52; i++) {
+                            game.card.getRandomCard()[i] = 0;
+                        }
+                        AftermatchController.display();
+                        Stage stage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
+                        stage.close();
+                    }
                     isTrading = true;
                     setPotVisibility();
                     tradeKingSlaveCard();
@@ -618,6 +658,13 @@ public class scenePlayer1 implements upScaleImageView {
                     }
 
                 }
+
+//                if (game.isSecondRound()) {
+//
+//                    countTrade = -10;
+//
+//                }
+//                AftermatchController.display();
                 setAndShow();
                 showCardLeft();
 
@@ -640,13 +687,104 @@ public class scenePlayer1 implements upScaleImageView {
         }
         indexOfselectedCard.clear();
         countSelect = 0;
+//        if (countTrade == -10) {
+//            goToAfterMatch();
+//        }
 
+    }
+
+    public void goToAfterMatch() throws IOException {
+        Parent sceneCardParent = FXMLLoader.load(getClass().getResource("afterMatch.fxml"));
+        Scene sceneCardScene = new Scene(sceneCardParent);
+        Stage stage = (Stage) cheatButton.getScene().getWindow();
+        //   mediamenusound.stop();
+        // SoundController.mediamenusound.stop();
+        stage.setScene(sceneCardScene);
+        stage.show();
+//        Stage changeToEnd = (Stage) AcceptButton.getScene().getWindow();
+//        changeToEnd.close();
     }
 
     public void tradeKingSlaveCard() {
         tradeButton.setVisible(true);
         AcceptButton.setVisible(false);
         skipButton.setVisible(false);
+        if (game.p[0].getKQPS() == 1) {
+            medalPotList.get(0).setImage(medalList.get(0));
+        }
+        else if (game.p[1].getKQPS() == 1) {
+            medalPotList.get(1).setImage(medalList.get(0));
+        }
+        else if (game.p[2].getKQPS() == 1) {
+            medalPotList.get(2).setImage(medalList.get(0));
+        }
+        else if (game.p[3].getKQPS() == 1) {
+            medalPotList.get(3).setImage(medalList.get(0));
+        }
+
+
+        if (game.p[0].getKQPS() == 2) {
+            medalPotList.get(0).setImage(medalList.get(1));
+        }
+        else if (game.p[1].getKQPS() ==2) {
+            medalPotList.get(1).setImage(medalList.get(1));
+        }
+        else  if (game.p[2].getKQPS() == 2) {
+            medalPotList.get(2).setImage(medalList.get(1));
+        }
+        else  if (game.p[3].getKQPS() == 2) {
+            medalPotList.get(3).setImage(medalList.get(1));
+        }
+
+
+        if (game.p[0].getKQPS() == 3) {
+            medalPotList.get(0).setImage(medalList.get(2));
+        }
+        else if (game.p[1].getKQPS() == 3) {
+            medalPotList.get(1).setImage(medalList.get(2));
+        }
+        else if (game.p[2].getKQPS() == 3) {
+            medalPotList.get(2).setImage(medalList.get(2));
+        }
+        else if (game.p[3].getKQPS() == 3) {
+            medalPotList.get(3).setImage(medalList.get(2));
+        }
+
+        if (game.p[game.getTurn()].getKQPS() == 2) {
+            //queen
+            if (game.getTurn() == 0) {
+                //medalPotList.get(0).setImage(medalList.get(1));
+
+            } else if (game.getTurn() == 1) {
+                // medalPotList.get(1).setImage(medalList.get(1));
+
+            } else if (game.getTurn() == 2) {
+                // medalPotList.get(2).setImage(medalList.get(1));
+
+            } else if (game.getTurn() == 3) {
+                //  medalPotList.get(3).setImage(medalList.get(1));
+
+            }
+
+        }
+        if (game.p[game.getTurn()].getKQPS() == 3) {
+            //people
+
+            if (game.getTurn() == 0) {
+                // medalPotList.get(0).setImage(medalList.get(2));
+
+            } else if (game.getTurn() == 1) {
+                //medalPotList.get(1).setImage(medalList.get(2));
+
+            } else if (game.getTurn() == 2) {
+                // medalPotList.get(2).setImage(medalList.get(2));
+
+            } else if (game.getTurn() == 3) {
+                //medalPotList.get(3).setImage(medalList.get(2));
+
+            }
+
+        }
 
         for (int i = 0; i < 4; i++) {
             if (i != game.getKing()) {
@@ -663,6 +801,8 @@ public class scenePlayer1 implements upScaleImageView {
         game.tradeCard();
         showCardLeft();
         game.startGame();
+        // game.restart();
+
 //setSlaveImage
         if (game.getSlave() == 0) {
             player0.setImage(mulanList.get(4));
@@ -673,7 +813,6 @@ public class scenePlayer1 implements upScaleImageView {
         } else if (game.getSlave() == 3) {
             player3.setImage(tianaList.get(4));
         }
-
 
     }
 
@@ -722,8 +861,7 @@ public class scenePlayer1 implements upScaleImageView {
         } else if (Imageviewevent.equals("tradeButton")) {
             tradeButton.setScaleX(1.2);
             tradeButton.setScaleY(1.2);
-        }
-        else if (Imageviewevent.equals("optionButton")) {
+        } else if (Imageviewevent.equals("optionButton")) {
             optionButton.setScaleX(1.2);
             optionButton.setScaleY(1.2);
         }
@@ -747,8 +885,7 @@ public class scenePlayer1 implements upScaleImageView {
         } else if (Imageviewevent.equals("tradeButton")) {
             tradeButton.setScaleX(1);
             tradeButton.setScaleY(1);
-        }
-        else if (Imageviewevent.equals("optionButton")) {
+        } else if (Imageviewevent.equals("optionButton")) {
             optionButton.setScaleX(1);
             optionButton.setScaleY(1);
         }
@@ -834,17 +971,25 @@ public class scenePlayer1 implements upScaleImageView {
     }
 
     void setKQPSImg() {
+        System.out.println("turn ");
         if (game.p[game.getTurn()].getKQPS() != 0) {
             if (game.p[game.getTurn()].getKQPS() == 1) {
                 //King
                 if (game.getTurn() == 0) {
                     player0.setImage(mulanList.get(1));
+                    // medalPotList.get(0).setImage(medalList.get(0));
                 } else if (game.getTurn() == 1) {
                     player1.setImage(pocaList.get(1));
+                    // medalPotList.get(1).setImage(medalList.get(0));
+
                 } else if (game.getTurn() == 2) {
                     player2.setImage(snowList.get(1));
+                    // medalPotList.get(2).setImage(medalList.get(0));
+
                 } else if (game.getTurn() == 3) {
                     player3.setImage(tianaList.get(1));
+                    // medalPotList.get(3).setImage(medalList.get(0));
+
                 }
 
             }
@@ -852,12 +997,20 @@ public class scenePlayer1 implements upScaleImageView {
                 //queen
                 if (game.getTurn() == 0) {
                     player0.setImage(mulanList.get(2));
+                    //medalPotList.get(0).setImage(medalList.get(1));
+
                 } else if (game.getTurn() == 1) {
                     player1.setImage(pocaList.get(2));
+                    // medalPotList.get(1).setImage(medalList.get(1));
+
                 } else if (game.getTurn() == 2) {
                     player2.setImage(snowList.get(2));
+                    // medalPotList.get(2).setImage(medalList.get(1));
+
                 } else if (game.getTurn() == 3) {
                     player3.setImage(tianaList.get(2));
+                    //  medalPotList.get(3).setImage(medalList.get(1));
+
                 }
 
             }
@@ -866,12 +1019,20 @@ public class scenePlayer1 implements upScaleImageView {
 
                 if (game.getTurn() == 0) {
                     player0.setImage(mulanList.get(3));
+                    // medalPotList.get(0).setImage(medalList.get(2));
+
                 } else if (game.getTurn() == 1) {
                     player1.setImage(pocaList.get(3));
+                    //medalPotList.get(1).setImage(medalList.get(2));
+
                 } else if (game.getTurn() == 2) {
                     player2.setImage(snowList.get(3));
+                    // medalPotList.get(2).setImage(medalList.get(2));
+
                 } else if (game.getTurn() == 3) {
                     player3.setImage(tianaList.get(3));
+                    //medalPotList.get(3).setImage(medalList.get(2));
+
                 }
 
             }
@@ -882,10 +1043,7 @@ public class scenePlayer1 implements upScaleImageView {
     void tradeQueenPeopleCard() {
         game.tradeQueen(indexOfselectedCard, game.getQueen(), game.getPeople());
         showCardLeft();
-
         game.restart();
-        //game.tradeKing(indexOfselectedCard, game.getKing(), game.getSlave());
-        //indexOfselectedCard.get(indexOFcardOn);
         for (int index = 0; index < 13; index++) {
             card52.get(index).setScaleX(10);
             card52.get(index).setScaleY(10);
@@ -894,8 +1052,7 @@ public class scenePlayer1 implements upScaleImageView {
         }
         indexOfselectedCard.clear();
         countSelect = 0;
-
-        //indexOfselectedCard.get(indexOFcardOn);
+        game.setSecondRound(true);
     }
 
     @FXML
@@ -919,6 +1076,9 @@ public class scenePlayer1 implements upScaleImageView {
             countSelect = 0;
             playerList.get(game.getQueen()).setScaleX(1.3);
             playerList.get(game.getQueen()).setScaleY(1.3);
+            setAndShow();
+
+            countTrade++;
 
         } else if (countTrade == 1) {
             System.out.println("index of selected card " + indexOfselectedCard);
@@ -943,16 +1103,42 @@ public class scenePlayer1 implements upScaleImageView {
             for (int i = 0; i < 4; i++) {
                 System.out.println("Player : " + (i) + "  ");
                 game.p[i].showPlayerCardOnHand();
+                if (i == 0) {
+                    playerList.get(i).setImage(mulanList.get(0));
+                }
+                if (i == 1) {
+                    playerList.get(i).setImage(pocaList.get(0));
+                }
+                if (i == 2) {
+                    playerList.get(i).setImage(snowList.get(0));
+                }
+                if (i == 3) {
+                    playerList.get(i).setImage(tianaList.get(0));
+                }
+                if (i != game.getSlave()) {
+                    medalPotList.get(i).setVisible(true);
+                }
             }
+            game.cheat();
+            game.setFirstRoundEnd(false);
+            countTrade = 0;
+            setAndShow();
 
         }
-        countTrade++;
-        setAndShow();
 
-
+        //  setAndShow();
     }
 
-//    public String setMediaFile(String filename){
-//        return "file:" + System.getProperty("user.dir") + "/src/audio.parn/"+filename;
-//    }
+    @FXML
+    private void cheatButtonAction(MouseEvent event) throws IOException {
+        //game.cheat();
+        Parent sceneCardParent = FXMLLoader.load(getClass().getResource("afterMatch.fxml"));
+        Scene sceneCardScene = new Scene(sceneCardParent);
+        Stage stage = (Stage) cheatButton.getScene().getWindow();
+//                    //  mediamenusound.stop();
+        // SoundController.mediamenusound.stop();
+        stage.setScene(sceneCardScene);
+        stage.show();
+    }
+
 }

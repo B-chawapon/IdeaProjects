@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author User
  */
-public class Player {
+public class Player<staic> {
 
     private String ID;
     private int turnOrder;
